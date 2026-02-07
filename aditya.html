@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love 🌹</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #ffd1dc, #fff5f8);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page {
+    display: none;
+    background: white;
+    width: 420px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    animation: pop 0.6s ease;
+  }
+
+  .page.active {
+    display: block;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  h1 {
+    color: #ff4d6d;
+  }
+
+  p {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .emoji {
+    font-size: 60px;
+    animation: float 2s infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #ff1f4a;
+  }
+
+  .hearts {
+    font-size: 22px;
+    color: #ff4d6d;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <div class="emoji">🌹</div>
+  <h1>Happy Rose Day 💖</h1>
+  <p>
+    This rose is for the most<br>
+    beautiful girl in my world 🌸<br><br>
+    Please tap next, my love 💕
+  </p>
+  <button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="emoji">🥺</div>
+  <h1>I’m Sorry…</h1>
+  <p>
+    I know I made a mistake,<br>
+    and it really hurts me that<br>
+    I hurt you 😔<br><br>
+    I never wanted to see you sad.
+  </p>
+  <button onclick="prevPage()">⬅ Back</button>
+  <button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="emoji">❤️</div>
+  <h1>You Mean Everything</h1>
+  <p>
+    You are my smile,<br>
+    my peace,<br>
+    my favorite person 💕<br><br>
+    Life feels empty without your happiness.
+  </p>
+  <button onclick="prevPage()">⬅ Back</button>
+  <button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="emoji">🤞</div>
+  <h1>My Promise</h1>
+  <p>
+    I promise to listen better 🫶<br>
+    I promise to care deeper 💖<br>
+    I promise to love you harder 🌹<br><br>
+    Every single day.
+  </p>
+  <button onclick="prevPage()">⬅ Back</button>
+  <button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <div class="emoji">💞</div>
+  <h1>Please Forgive Me</h1>
+  <p>
+    On this Rose Day 🌹<br>
+    I give you my heart again ❤️<br><br>
+    Will you forgive your silly,<br>
+    loving person? 🥺
+  </p>
+  <div class="hearts">
+    ❤️ 💖 💕 💓 💗
+  </div>
+  <button onclick="prevPage()">⬅ Back</button>
+</div>
+
+<script>
+  let currentPage = 0;
+  const pages = document.querySelectorAll('.page');
+
+  function showPage(index) {
+    pages.forEach(p => p.classList.remove('active'));
+    pages[index].classList.add('active');
+  }
+
+  function nextPage() {
+    if (currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+</script>
+
+</body>
+</html>
